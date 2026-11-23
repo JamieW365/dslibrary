@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dslibrary"
+version = "0.1.0"
+description = "Reusable data science helpers and a library of worked mini-projects."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "scikit-learn", "matplotlib", "seaborn"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "pre-commit", "nbstripout", "jupyterlab"]
+nlp = ["spacy", "transformers"]
+vision = ["torch", "torchvision", "opencv-python"]
+graphs = ["networkx"]
+all = ["dslibrary[nlp,vision,graphs]"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
